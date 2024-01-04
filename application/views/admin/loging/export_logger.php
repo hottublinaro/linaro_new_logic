@@ -75,7 +75,7 @@ header("Content-Type: application/vnd.ms-excel");
                                     <td><?= $item->relay_ch5 ?></td>
                                     <td><?= $item->relay_ch6 ?></td>
                                     <td><?= $item->relay_ch7 ?></td>
-                                    <td></td>
+                    
                                 </tr>
                             <?php } ?>
                         </tbody>
