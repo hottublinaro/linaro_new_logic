@@ -1,7 +1,10 @@
 <?php
-$fileName = "export_logger_volt" . $date_time . ".xlsx";
-header("Content-Disposition: attachment; filename=\"$fileName\"");
-header("Content-Type: application/vnd.ms-excel");
+
+header("Content-Type: application/xls");
+header("Content-Disposition: attachment; filename=export_volt.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+
 
 ?>
 <!DOCTYPE html>

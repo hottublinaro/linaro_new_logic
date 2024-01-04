@@ -1,7 +1,10 @@
 <?php
-$fileName = "export_logger_" . $date_time . ".xlsx";
-header("Content-Disposition: attachment; filename=\"$fileName\"");
-header("Content-Type: application/vnd.ms-excel");
+
+header("Content-Type: application/xls");
+header("Content-Disposition: attachment; filename=export.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+
 
 ?>
 <!DOCTYPE html>
@@ -9,6 +12,7 @@ header("Content-Type: application/vnd.ms-excel");
 
 <head>
     <meta charset="utf-8">
+    
 </head>
 
 <body>
@@ -75,7 +79,6 @@ header("Content-Type: application/vnd.ms-excel");
                                     <td><?= $item->relay_ch5 ?></td>
                                     <td><?= $item->relay_ch6 ?></td>
                                     <td><?= $item->relay_ch7 ?></td>
-                    
                                 </tr>
                             <?php } ?>
                         </tbody>
