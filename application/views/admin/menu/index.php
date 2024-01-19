@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-        <?php if ($options[0]->temperature == 1) { ?>
+        <?php if ($options[0]->heater_1 == 1) { ?>
             <div class="col-md-4">
                 <div class="box-menu" onclick="goto_page('Temperature/index');">
                     <img src="<?= base_url('assets/images/temperatures.png') ?>" class="menu_image">

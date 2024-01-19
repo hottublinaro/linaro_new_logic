@@ -15,13 +15,15 @@
         $setting_mode = $this->Setting_model->setting_mode();
         $online_setting = $this->Setting_model->get_online_setting();
         $machine_code = $this->Setting_model->get_machine_code();
+        $machine_option = $this->Setting_model->get_machine_option();
         $result = array(
             'path_file' => 'setting/index',
             'menu_name' => 'Mode de fonctionnement',
             'setting_mode' => $setting_mode,
             'online_setting' => $online_setting,
             'path_server' => $this->path_server,
-            'machine_code' => $machine_code
+            'machine_code' => $machine_code,
+            'machine_option' => $machine_option
         );
         $this->load->view('admin/index', $result);
     }

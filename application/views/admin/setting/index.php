@@ -87,26 +87,27 @@
                 </div>
             </div>
         </div>
+        <?php if ($machine_option[0]->heater_1 == 1) { ?>
+            <div class="col-md-12 mt-4">
+                <div class="box-showing">
+                    <div class="tab-header text-center">
+                        <h4>Chauffage</h4>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="co-md-12">
+                            <div class="switch-toggle switch-3 switch-candy">
+                                <input id="chauffage_on" name="chauffage" type="radio" <?= $setting_mode[0]->sm_chauffage == 1 ? 'checked' : '' ?> onchange="change_status('chauffage','sm_chauffage')" value="1" />
+                                <label for="chauffage_on" onclick="" style="margin-top: 5px;">Marche</label>
 
-        <div class="col-md-12 mt-4">
-            <div class="box-showing">
-                <div class="tab-header text-center">
-                    <h4>Chauffage</h4>
-                </div>
-                <div class="row mt-3">
-                    <div class="co-md-12">
-                        <div class="switch-toggle switch-3 switch-candy">
-                            <input id="chauffage_on" name="chauffage" type="radio" <?= $setting_mode[0]->sm_chauffage == 1 ? 'checked' : '' ?> onchange="change_status('chauffage','sm_chauffage')" value="1" />
-                            <label for="chauffage_on" onclick="" style="margin-top: 5px;">Marche</label>
-
-                            <input id="chauffage_off" name="chauffage" type="radio" <?= $setting_mode[0]->sm_chauffage == 0 ? 'checked' : '' ?> onchange="change_status('chauffage','sm_chauffage')" value="0" />
-                            <label for="chauffage_off" style="margin-top: 5px;">Arrêt</label>
-                            <a></a>
+                                <input id="chauffage_off" name="chauffage" type="radio" <?= $setting_mode[0]->sm_chauffage == 0 ? 'checked' : '' ?> onchange="change_status('chauffage','sm_chauffage')" value="0" />
+                                <label for="chauffage_off" style="margin-top: 5px;">Arrêt</label>
+                                <a></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php } ?>
 
         <div class="col-md-12 mt-4">
             <div class="box-showing">
