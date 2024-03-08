@@ -21,7 +21,7 @@
                             <h4>Online Setting <span class="float-end"><i class="fa fa-angle-right fa-lg"></i></span></h4>
                         </div>
                     </div>
-                    <div class="col-md-12 mt-3" onclick="night_time_setting()" style="cursor:pointer">
+                    <div class="col-md-12 mt-3" onclick="night_time_setting()" style="cursor:pointer; display:none">
                         <div class="box-showing">
                             <h4>Night time <span class="float-end"><i class="fa fa-angle-right fa-lg"></i></span></h4>
                         </div>

@@ -200,12 +200,44 @@
                 </div>
             </div>
         </div>
+        <?php if ($machine_option[0]->night_time == 1) { ?>
+            <div class="col-md-12 mt-4">
+                <div class="box-showing">
+                    <div class="tab-header text-center">
+                        <h4>Night Time</h4>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="co-md-12">
+                            <div class="switch-toggle switch-3 switch-candy">
+                                <input id="night_time_manual" name="night_time" type="radio" <?= $night_time[0]->night_time_enable == 0 ? 'checked' : '' ?> onchange="change_night_time('0')" />
+                                <label for="night_time_manual" onclick="" style="margin-top: 5px;">Box Swiich</label>
+
+                                <input id="night_time_on" name="night_time" type="radio" <?= ($night_time[0]->night_time_enable == 1) ? $night_time[0]->night_time_status == 1 ? 'checked' : '' : '' ?> onchange="change_night_time('1')" />
+                                <label for="night_time_on" onclick="" style="margin-top: 5px;">Open 24 Hour.</label>
+
+                                <input id="night_time_off" name="night_time" type="radio" <?= ($night_time[0]->night_time_enable == 1)  ? $night_time[0]->night_time_status == 0 ? 'checked' : '' : '' ?> onchange="change_night_time('2')" />
+                                <label for="night_time_off" style="margin-top: 5px;">Closed at night</label>
+                                <a></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
     </div>
 </div>
 <input type="hidden" id="online_setting" name="online_setting" value="<?= $online_setting[0]->online_status ?>">
 <input type="hidden" id="path_server" name="path_server" value="<?= $path_server ?>">
 <input type="hidden" id="machine_code" name="machine_code" value="<?= $machine_code[0]->machine_code ?>">
 <script>
+    function change_night_time(status) {
+        $.post("<?= base_url('admin/Setting/update_night_time') ?>", {
+            status: status
+        }, function() {
+
+        })
+    }
+
     function change_status(input_name, fields) {
         var filtration = $('input[name="' + input_name + '"]:checked').val();
         update_setting(filtration, fields);

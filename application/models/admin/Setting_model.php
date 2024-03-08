@@ -34,4 +34,27 @@
             'temp_calibrate' => $calibrate_temp
         ));
     }
+    public function get_night_time()
+    {
+        return $this->db->select('*')->from('night_time')->get()->result();
+    }
+    public function update_night_time($status)
+    {
+        if ($status == '0') {
+            $this->db->where('night_time_id', 1)->update('night_time', array(
+                'night_time_enable' => 0,
+                'night_time_status' => 0
+            ));
+        } else if ($status == '1') {
+            $this->db->where('night_time_id', 1)->update('night_time', array(
+                'night_time_enable' => 1,
+                'night_time_status' => 1
+            ));
+        } else if ($status == '2') {
+            $this->db->where('night_time_id', 1)->update('night_time', array(
+                'night_time_enable' => 1,
+                'night_time_status' => 0
+            ));
+        }
+    }
 }

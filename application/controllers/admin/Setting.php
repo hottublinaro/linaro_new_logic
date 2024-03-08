@@ -16,6 +16,7 @@
         $online_setting = $this->Setting_model->get_online_setting();
         $machine_code = $this->Setting_model->get_machine_code();
         $machine_option = $this->Setting_model->get_machine_option();
+        $night_time = $this->Setting_model->get_night_time();
         $result = array(
             'path_file' => 'setting/index',
             'menu_name' => 'Mode de fonctionnement',
@@ -23,7 +24,8 @@
             'online_setting' => $online_setting,
             'path_server' => $this->path_server,
             'machine_code' => $machine_code,
-            'machine_option' => $machine_option
+            'machine_option' => $machine_option,
+            'night_time' => $night_time
         );
         $this->load->view('admin/index', $result);
     }
@@ -33,5 +35,10 @@
         $field = $this->input->post('field');
 
         $this->Setting_model->update_setting($set, $field);
+    }
+    public function update_night_time()
+    {
+        $status = $this->input->post('status');
+        $this->Setting_model->update_night_time($status);
     }
 }
