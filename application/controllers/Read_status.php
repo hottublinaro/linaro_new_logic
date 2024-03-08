@@ -239,4 +239,18 @@
         //     }
         // }
     }
+    public function read_counter_machine()
+    {
+        $arr = [];
+        $slug = "counter_machine.txt";
+        $path = $this->path_file . $slug;
+        $MyFile = file_get_contents($path);
+
+        // $this->db->where('dashboard_id', 1)->update('dashboard', array(
+        //     'volt_1' => $arr[0],
+        //     'volt_2' => $arr[1],
+        //     'volt_3' => $arr[2]
+        // ));
+        echo json_encode($MyFile);
+    }
 }

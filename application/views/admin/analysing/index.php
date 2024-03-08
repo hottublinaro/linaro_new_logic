@@ -62,7 +62,7 @@
                 <div class="row mt-4">
                     <div class="col-md-12">
                         <div class="box-showing">
-                            <h4>Compteur d'heures <span class="float-end">HHHHH.MM</span></h4>
+                            <h4>Compteur d'heures <span class="float-end" id="counter_ja">HHHHH.MM</span></h4>
                         </div>
                     </div>
                 </div>
@@ -83,6 +83,7 @@
     setInterval(read_pressure, 3000);
     setInterval(read_pressure_count_down, 3000);
     setInterval(load_datetime_now, 1000);
+    setInterval(load_counter_machine, 3000)
     // setInterval(min_max_pressure, 3000);
     $(function() {
         load_plc_in();
@@ -95,8 +96,24 @@
         read_pressure();
         read_pressure_count_down();
         load_datetime_now();
+        load_counter_machine();
         // min_max_pressure();
     });
+
+    function load_counter_machine() {
+        $.getJSON("<?= base_url('Read_status/read_counter_machine') ?>", function(data) {
+            var counter_ja = parseInt(data);
+            if (counter_ja > 60) {
+                var div_h = parseInt(counter_ja / 60);
+                var mod_m = counter_ja % 60;
+                var txt_group = div_h + '.' + mod_m + " Hour";
+                $('#counter_ja').html(txt_group);
+            } else {
+                var txt_group = counter_ja + " Minute";
+                $('#counter_ja').html(txt_group);
+            }
+        });
+    }
 
     function load_datetime_now() {
         var currentdate = new Date();
