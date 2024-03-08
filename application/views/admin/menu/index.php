@@ -4,9 +4,9 @@
             font-size: 14px;
         }
 
-        .box-menu {
+        /* .box-menu {
             height: 250px;
-        }
+        } */
     }
 </style>
 <div class="container mb-4">
@@ -15,7 +15,7 @@
     </div>
 
     <div class="row g-3">
-        <div class="col-md-4">
+        <div class="col-md-4 col-6">
             <div class="box-menu" onclick="goto_page('dashboard/index');">
                 <img src="<?= base_url('assets/images/dashboard.png') ?>" class="menu_image">
                 <div class="text-center mt-2">
@@ -24,7 +24,7 @@
             </div>
         </div>
         <?php if ($options[0]->heater_1 == 1) { ?>
-            <div class="col-md-4">
+            <div class="col-md-4 col-6">
                 <div class="box-menu" onclick="goto_page('Temperature/index');">
                     <img src="<?= base_url('assets/images/temperatures.png') ?>" class="menu_image">
                     <div class="text-center mt-2">
@@ -33,7 +33,7 @@
                 </div>
             </div>
         <?php } ?>
-        <div class="col-md-4">
+        <div class="col-md-4 col-6">
             <div class="box-menu" onclick="goto_page('filtration/index');">
                 <img src="<?= base_url('assets/images/filtration.png') ?>" class="menu_image">
                 <div class="text-center mt-2">
@@ -42,7 +42,7 @@
             </div>
         </div>
         <?php if ($options[0]->backwash == 1) { ?>
-            <div class="col-md-4">
+            <div class="col-md-4 col-6">
                 <div class="box-menu" onclick="goto_page('backwash/index');">
                     <img src="<?= base_url('assets/images/antibacterial.png') ?>" class="menu_image">
                     <div class="text-center mt-2">
@@ -51,7 +51,7 @@
                 </div>
             </div>
         <?php } ?>
-        <div class="col-md-4">
+        <div class="col-md-4 col-6">
             <div class="box-menu" onclick="goto_page('Substance/index');">
                 <img src="<?= base_url('assets/images/paper.png') ?>" class="menu_image">
                 <div class="text-center mt-2">
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-6">
             <div class="box-menu" onclick="goto_page('Setting/index');">
                 <img src="<?= base_url('assets/images/control.png') ?>" class="menu_image">
                 <div class="text-center mt-2">
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-6">
             <div class="box-menu" onclick="goto_page('Advance/index');">
                 <img src="<?= base_url('assets/images/settings.png') ?>" class="menu_image">
                 <div class="text-center mt-2">
@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-6">
             <div class="box-menu" onclick="goto_page('Analysing/index');">
                 <img src="<?= base_url('assets/images/analysing.png') ?>" class="menu_image">
                 <div class="text-center mt-2">
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-6">
             <div class="box-menu" onclick="goto_page('Administrator/index')">
                 <img src="<?= base_url('assets/images/unauthorized-person.png') ?>" class="menu_image">
                 <div class="text-center mt-2">
@@ -91,7 +91,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-6">
             <div class="box-menu" onclick="goto_page('Loging/index');">
                 <img src="<?= base_url('assets/images/log.png') ?>" class="menu_image">
                 <div class="text-center mt-2">
@@ -99,7 +99,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-6">
             <div class="box-menu" onclick="open_modal_recovery()">
                 <img src="<?= base_url('assets/images/backup.png') ?>" class="menu_image">
                 <div class="text-center mt-2">
