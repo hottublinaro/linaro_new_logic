@@ -117,4 +117,10 @@
             $input_id => $number
         ));
     }
+    public function update_selection_option_ph($option_ph)
+    {
+        $this->db->where('substance_id', 1)->update('substance', array(
+            'ph_main_status' => $option_ph
+        ));
+    }
 }

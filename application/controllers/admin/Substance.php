@@ -84,5 +84,9 @@
         $number = $this->input->post('number');
         $this->Substance_model->update_substance_setting($input_id, $number);
     }
-    
+    public function update_selection_option_ph()
+    {
+        $option_ph = $this->input->post('option_ph');
+        $this->Substance_model->update_selection_option_ph($option_ph);
+    }
 }

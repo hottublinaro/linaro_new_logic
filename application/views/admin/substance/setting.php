@@ -1,3 +1,9 @@
+<style>
+    #option_ph {
+        width: 180px;
+        text-align: center;
+    }
+</style>
 <div class="container mt-5 mb-4">
     <?php if ($options[0]->ph == 1) { ?>
         <div class="row">
@@ -16,6 +22,21 @@
                                     <span class="input-group-text" id="basic-addon1" onclick="set_number_input('minus','ph_set','float')"><i class="fa fa-minus fa-lg"></i></span>
                                     <input type="text" aria-label="Username" id="ph_set" value="<?= number_format($info[0]->ph_set, 2) ?>" style="width: 90px; text-align : center">
                                     <span class="input-group-text" id="basic-addon2" onclick="set_number_input('plus','ph_set','float')"><i class="fa fa-plus fa-lg"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-8 mt-3">
+                            <h3>Config</h3>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <div class="float-end">
+                                <div class="input-group mb-3">
+                                    <select class="form-control" id="option_ph" name="option_ph" onchange="selection_option_ph()">
+                                        <option value="top" <?= ($info[0]->ph_main_status == 'top') ? 'selected' : '' ?>>Top Main</option>
+                                        <option value="bottom" <?= ($info[0]->ph_main_status == 'bottom') ? 'selected' : '' ?>>Bottom Main</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -211,6 +232,27 @@
 <input type="hidden" id="path_server" name="path_server" value="<?= $path_server ?>">
 <input type="hidden" id="machine_code" name="machine_code" value="<?= $machine_code[0]->machine_code ?>">
 <script>
+    function selection_option_ph() {
+
+        $.post("<?= base_url('admin/Substance/update_selection_option_ph') ?>", {
+            option_ph: $('#option_ph').val()
+        }, function() {
+            if ($('#online_setting').val() == 1) {
+                selection_option_ph_server($('#option_ph').val());
+            }
+        })
+    }
+
+    function selection_option_ph_server(option_ph) {
+        var path_server = $('#path_server').val() + 'api/Receive_setting/setting_status_mode_ph';
+        $.post(path_server, {
+            option_ph: option_ph,
+            machine_code: $('#machine_code').val()
+        }, function() {
+
+        })
+    }
+
     function set_number_input(status, input_id, type) {
         var number = $('#' + input_id).val();
         if (status == 'minus') {
