@@ -237,7 +237,7 @@
         var split_date_time = date_time.split('T');
         var split_date = split_date_time[0].split('-');
         var split_time = split_date_time[1].split(':');
-        var txt_date = "00," + split_time[1] + ',' + split_time[0] + ',' + day + ',' + split_date[2] + ',' + split_date[1] + ',' + split_date[0].slice(-2);
+        var txt_date = "00-" + split_time[1] + '-' + split_time[0] + '-' + day + '-' + split_date[2] + '-' + split_date[1] + '-' + split_date[0].slice(-2);
 
 
         // console.log($('#date_time').val())
