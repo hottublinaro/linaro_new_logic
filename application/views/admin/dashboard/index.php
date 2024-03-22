@@ -199,14 +199,17 @@
     })
 
     function datetime_now() {
-        var currentdate = new Date();
-        var datetime = currentdate.getDate() + "/" +
-            (currentdate.getMonth() + 1) + "/" +
-            currentdate.getFullYear() + " " +
-            currentdate.getHours() + ":" +
-            currentdate.getMinutes() + ":" +
-            currentdate.getSeconds();
-        $('#datetime_now').html(datetime);
+        $.getJSON("<?= base_url('Read_status/read_datetime_rtc') ?>", function(data) {
+            $('#datetime_now').html(data);
+        });
+        // var currentdate = new Date();
+        // var datetime = currentdate.getDate() + "/" +
+        //     (currentdate.getMonth() + 1) + "/" +
+        //     currentdate.getFullYear() + " " +
+        //     currentdate.getHours() + ":" +
+        //     currentdate.getMinutes() + ":" +
+        //     currentdate.getSeconds();
+
     }
 
     function load_countdown_pressure() {

@@ -253,4 +253,16 @@
         // ));
         echo json_encode($MyFile);
     }
+    public function read_datetime_rtc()
+    {
+        $slug = "time_rtc.txt";
+        $path = $this->path_file . $slug;
+        $arr = [];
+        $MyFile = file_get_contents($path);
+
+        // $this->db->where('dashboard_id', 1)->update('dashboard', array(
+        //     'plc_in' => json_encode($MyFile)
+        // ));
+        echo json_encode($MyFile);
+    }
 }
