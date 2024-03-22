@@ -178,13 +178,34 @@
                 <div class="tab-header text-center">
                     <h4>Set Date et heure</h4>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 mt-3">
+
+                <div class="row ">
+                    <div class="col-md-12">
+                        <div class="float-end">
+                            <i class="fa fa-save fa-2x" onclick="set_datetime()"></i>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 mt-12">
                         <h3>Date et heure</h3>
                     </div>
-                    <div class="col-md-6 mt-3">
-                        <div class="float-end">
-                            <input type="datetime-local" class="form-control" id="date_time" value="<?= date('Y-m-d H:i') ?>" onchange="set_datetime()">
+
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <select class="form-control" id="day_of_set">
+                                <option value="0">Dim</option>
+                                <option value="1">Lun</option>
+                                <option value="2">Mar</option>
+                                <option value="3">Mer</option>
+                                <option value="4">Jeu</option>
+                                <option value="5">Ven</option>
+                                <option value="6">Sam</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <input type="datetime-local" class="form-control" id="date_time" value="<?= date('Y-m-d H:i') ?>">
                         </div>
                     </div>
                 </div>
@@ -211,14 +232,22 @@
     }
 
     function set_datetime() {
-        console.log($('#date_time').val())
-        var split_time = $('#date_time').val().split('T');
-        console.log(split_time)
-        var date = split_time[0]
-        var time = split_time[1]
-        var process = date + " " + time;
-        console.log(process)
-        $.getJSON("http://localhost:5000/" + process, function(data) {
+        var day = $('#day_of_set').val();
+        var date_time = $('#date_time').val();
+        var split_date_time = date_time.split('T');
+        var split_date = split_date_time[0].split('-');
+        var split_time = split_date_time[1].split(':');
+        var txt_date = "00," + split_time[1] + ',' + split_time[0] + ',' + day + ',' + split_date[2] + ',' + split_date[1] + ',' + split_date[0].slice(-2);
+
+
+        // console.log($('#date_time').val())
+        // var split_time = $('#date_time').val().split('T');
+        // console.log(split_time)
+        // var date = split_time[0]
+        // var time = split_time[1]
+        // var process = date + " " + time;
+        // console.log(process)
+        $.getJSON("http://localhost:5000/" + txt_date, function(data) {
 
         });
         Swal.fire({
